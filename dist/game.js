@@ -2820,37 +2820,37 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       ],
       1: [
         "   ###########################   ",
-        "  #     #       #   *   #     #  ",
-        " #      #       #       #      # ",
-        "#       #       e       e       #",
-        "#       #       e       e       #",
-        "#       #       e       e       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "###################eee###########",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#################################",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       e       #",
-        "#       #       #       e      1#",
-        "#       #       #       e       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "###################eee###########",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       e       e       #",
-        "#       #       e       e       #",
-        "#       #       e       e       #",
-        " #      #       #       #      # ",
-        "  #     #       #       #     #  ",
+        "  #     #       #   *  d#     #  ",
+        " #    d #       # d     #  d   # ",
+        "#       e   c   e       e       #",
+        "# d     e       e       e  d    #",
+        "#       e       e    d  e       #",
+        "#     d # c     # d     #    d  #",
+        "# d     #       #       #d      #",
+        "###eee#############eee###########",
+        "#     d #    d  #     d #  d    #",
+        "#d      # d     # d     #       #",
+        "#   d   e    d  e   c   #d  d   #",
+        "#       e  d    e       #       #",
+        "# d     e       e    d  # d     #",
+        "#   c   #  d    #  c    #      d#",
+        "#    d  #     d # d  d  # d     #",
+        "###########eee###################",
+        "#    d  #     d #  d    #  d    #",
+        "#  d    # c     #     d #   d d #",
+        "#       e   d   #  c    e       #",
+        "#d   d  e     d #       e  d   1#",
+        "#  d    e       # d   c e       #",
+        "#       # d  c  #    d  #    d  #",
+        "#     d #       #       #       #",
+        "###########eee#####eee###########",
+        "#  r r  #    d  #     d #    d  #",
+        "# rt    #   c   # d    d# d     #",
+        "#  d  d e d     e   c   e    d  #",
+        "#r      e     d e       e       #",
+        "#    d  e   d   e    d  e  d    #",
+        " #      #  c    #  d    #     d# ",
+        "  #d    #d    d #      d#     #  ",
         "   ###########################   "
       ]
     },
@@ -2867,25 +2867,25 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
         "###eee#############eee###########",
         "#     d #       #     d #     d #",
         "# d     # d     #d      #  d    #",
-        "#       e       e       e       #",
+        "#       e       e       e   p   #",
         "#    d  e       e  d    e       #",
         "#       e    d  e       e    d  #",
-        "# d     #       # d     #d      #",
+        "# d     #       # d     #dp     #",
         "#   d   #  d    #     d #     d #",
         "###################eee#####eee###",
         "#       #   d   #      d#     d #",
-        "#       #       #       # d     #",
-        "#     d e    d  # d     e       #",
-        "# d     e       #       e     d #",
+        "#  p    #       #       # d     #",
+        "#     d e    d  # d     e    p  #",
+        "# d p   e       #       e     d #",
         "#       e       #    d  e       #",
         "#       #  d    #d      #  d    #",
         "#   d   #       #       #      d#",
         "###eee#####eee#####eee###########",
         "#    d  #     d #     d #   d   #",
         "#d      # d     # d  d  #d     @#",
-        "#       #       e       e       #",
+        "#       #   p   e       e       #",
         "#  d    # d     e   d   e       #",
-        "#     d #       e       e   d   #",
+        "#     d #       e   p   e   d p #",
         "#1      #   d   #  d    #      # ",
         " ##     #       #       # d   #  ",
         "   ###########################   "
@@ -3072,7 +3072,22 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
     },
     5: {
       0: [
-        "###############################*##############################"
+        "        ####        ",
+        "     ###    ###     ",
+        "   ##          ##   ",
+        "  #              #  ",
+        "  #              #  ",
+        "  #              #  ",
+        " #                # ",
+        " #                # ",
+        " #                # ",
+        " #                # ",
+        "  #              #  ",
+        "  #      *       #  ",
+        "  #              #  ",
+        "   ##          ##   ",
+        "     ###    ###     ",
+        "        ####        "
       ]
     }
   };
@@ -3098,7 +3113,10 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
         }
       }
     });
-    loadSprite("pierre", "sprites/pierre.png");
+    loadSprite("pierre", "sprites/pierre.png", {
+      sliceX: 2,
+      sliceY: 1
+    });
     loadSprite("jambon", "sprites/jambon.png");
     loadSprite("palme", "sprites/palme.png");
     loadSprite("coeur", "sprites/coeur.png");
@@ -3169,7 +3187,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       }
     });
     loadSprite("piranha", "sprites/piranha.png", {
-      sliceX: 14,
+      sliceX: 24,
       sliceY: 1,
       anims: {
         runY: {
@@ -3181,11 +3199,21 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
           from: 7,
           to: 13,
           loop: true
+        },
+        damageX: {
+          from: 14,
+          to: 18,
+          loop: false
+        },
+        damageX: {
+          from: 19,
+          to: 23,
+          loop: false
         }
       }
     });
     loadSprite("turtle", "sprites/turtle.png", {
-      sliceX: 12,
+      sliceX: 22,
       sliceY: 1,
       anims: {
         runX: {
@@ -3197,6 +3225,16 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
           from: 0,
           to: 5,
           loop: true
+        },
+        damageX: {
+          from: 12,
+          to: 16,
+          loop: false
+        },
+        damageX: {
+          from: 17,
+          to: 21,
+          loop: false
         }
       }
     });
@@ -3217,7 +3255,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       }
     });
     loadSprite("pieuvre", "sprites/pieuvre.png", {
-      sliceX: 8,
+      sliceX: 19,
       sliceY: 1,
       anims: {
         runX: {
@@ -3234,11 +3272,33 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
           from: 4,
           to: 7,
           loop: false
+        },
+        damage: {
+          from: 14,
+          to: 18,
+          loop: false
         }
       }
     });
   }
   __name(loadAssets, "loadAssets");
+  function crabeMouvement(speed = 60, dir = 1) {
+    return {
+      id: "patrol",
+      require: ["pos", "area"],
+      add() {
+        this.on("collide", (obj, col) => {
+          if (col.isTop() || col.isBottom()) {
+            dir = -dir;
+          }
+        });
+      },
+      update() {
+        this.move(0, speed * dir);
+      }
+    };
+  }
+  __name(crabeMouvement, "crabeMouvement");
 
   // code/main.js
   Es({
@@ -3314,7 +3374,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       height: 64,
       pos: vec2(0, 0),
       "#": () => [
-        sprite("pierre"),
+        sprite("pierre", { frame: ~~rand(0, 2) }),
         area(),
         scale(2),
         solid()
@@ -3359,6 +3419,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
         solid(),
         scale(1.5),
         health(2),
+        crabeMouvement(),
         "enemy",
         "playXAnim"
       ],
@@ -3503,7 +3564,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       e.play("mord");
     });
     onKeyPress("space", () => {
-      if (player.canAttak) {
+      if (player.canAttak == true) {
         let max = 80;
         let en = null;
         let distanceEn = 1e5;
@@ -3527,6 +3588,10 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
         });
         if (en != null) {
           en.hurt(1);
+          player.canAttak = false;
+          wait(1, () => {
+            player.canAttak = true;
+          });
         }
       }
     });
@@ -3582,36 +3647,9 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       camPos(player.pos);
     });
     if (etage === 0) {
-      showDialog("Animation en cours...", 2);
-      wait(2, () => {
-        showDialog("La tortue nait et rejoint la mer", 3);
-      });
-      wait(15, () => {
-        showDialog("Navigation vers la premiere profondeur", 3);
-      });
-      player.freeze();
-      let c2 = 0;
-      loop(0.2, () => {
-        if (c2 >= 0 && c2 < 10)
-          player.move(0, player.move_speed * 2);
-        else if (c2 >= 10 && c2 < 13) {
-          player.play("runX");
-          player.move(player.move_speed * 2, 0);
-        } else if (c2 >= 13 && c2 < 40) {
-          player.play("runY");
-          player.move(0, player.move_speed * 2);
-        } else if (c2 >= 40 && c2 < 50) {
-          player.play("runX");
-          player.flipX(true);
-          player.move(-player.move_speed * 2, 0);
-        } else if (c2 >= 50 && c2 < 95) {
-          player.play("runY");
-          player.flipX(false);
-          player.move(0, player.move_speed * 2);
-        } else if (c2 == 95)
-          go("game", { etage: 1 });
-        c2++;
-      });
+      go("game", { etage: 1 });
+    } else {
+      showDialog("Trouvez les merveilles et sorties pour descendre en profondeur", 10);
     }
     function takeDamage(nb) {
       if (nb > 0) {
