@@ -2750,178 +2750,294 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
   var maps = {
     0: {
       0: [
-        "##############",
-        "#   &   p     #",
-        "#            #",
-        "#            #",
-        "#            #",
-        "#            #",
-        "#            #",
-        "#            #",
-        "##############"
-      ],
-      1: [
-        "##############",
-        "#   &   p     #",
-        "#            #",
-        "#            #",
-        "#            #",
-        "#            #",
-        "#            #",
-        "#            #",
-        "##############"
+        "                                         ",
+        "                                         ",
+        "                                         ",
+        "                    *                    ",
+        "                                         ",
+        "                                         ",
+        "                                         ",
+        "                                         ",
+        "                                         ",
+        "                                         ",
+        " w w        ww ww w  w w w w     w w     ",
+        " wwww  w  w ww wwww  wwwww w   w w w   w ",
+        "wwwww wwwww ww wwwwwwwwwwwww   wwwwwww w ",
+        "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+        "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+        "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+        "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+        "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+        "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+        "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+        "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+        "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+        "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+        "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+        "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+        "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+        "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+        "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+        "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"
       ]
     },
     1: {
       0: [
-        "&###########&###########&#####0#####&###########&###########&",
-        "#           #           #           #           #           #",
-        "#           #           #    d      #   d       #           #",
-        "#      d    #   d       #           #           #           #",
-        "#  d        #           #           #           #           #",
-        "#           e           e   d       e       d   #           #",
-        "#           #           #           #           #           #",
-        "#           #      d    #           #           #           #",
-        "#           #           #   d       #           #           #",
-        "#      d    #  d        #        d  #   d       #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "&#####e#####&###########&#####e#####&#####e#####&###########&",
-        "#           #           #           #           #           #",
-        "#  d        #       d   #           #        d  #   d       #",
-        "#           #           #     d     #           #           #",
-        "#           #    d      #           #           #           #",
-        "#      d    #           #           #           #       d   #",
-        "#           e           e           #     d     e           #",
-        "#           #           #           #           #           #",
-        "#           #         d #   d   d   #           #           #",
-        "#    d      #           #           #        d  #           #",
-        "#           #           #      d    #           #           #",
-        "#           # d         #           #           #           #",
-        "&###########&#####e#####&###########&###########&#####e#####&",
-        "#           #           #           #           #           #",
-        "#        d  #           #           #           #           #",
-        "#           #   d       #           #           #  d     d  #",
-        "#           #           #           #           #           #",
-        "#   d       #           #           #           #           #",
-        "#           e        d  #           #           #           #",
-        "#           #           #           #           #  d     d  #",
-        "#           #           #           #           #           #",
-        "#   d       #           #           #           #           #",
-        "#           #       d   #           #           #           #",
-        "#           #           #           #           #         d #",
-        "&#####e#####&###########&###########&###########&#####e#####&",
-        "#           #           # d  r      #           #           #",
-        "#           # d         #   r rr   #           #  d        #",
-        "#      d    #           #  r  t r   #   d       #           #",
-        "#           #           #           #           #        d  #",
-        "#           #        d  #           #           #           #",
-        "#           e           e           e           e           #",
-        "#           #           #           #           #           #",
-        "#     d     #   d       #      d    #       d   #   d       #",
-        "#           #           #  d        #           #       d   #",
-        "#        d  #           #           #     d     #           #",
-        "#           #           #           #           #           #",
-        "&###########&#####e#####&###########&###########&#####e#####&",
-        "#           #           #           #           # d         #",
-        "#   d       #           #    d      #    d      #           #",
-        "#           #   d       #           #           #           #",
-        "#        d  #           #           #           #           #",
-        "#           #        d  #           #       d   #           #",
-        "#           e           e       d   #    d      e           #",
-        "#    d      #           #           #           #        d  #",
-        "#           #           #   d       #           #           #",
-        "#           #       d   #           #           #   d       #",
-        "#           #           #           #        d  #           #",
-        "#        d  #           #           #           #           #",
-        "&#####e#####&###########&###########&#####e#####&###########&",
-        "#           #           #           #           #           #",
-        "#        d  #   d       #       d   #       d   #     d  d  #",
-        "#           #           #           #           #d          #",
-        "#  d        #          d#   d       #   d       #      d    #",
-        "#           #           #           #           #           #",
-        "#           e           e           #           e           #",
-        "#           #           #           #           #      d    #",
-        "#           #        d  #      d    #           #           #",
-        "#    d      #  d        #           # d         #        d  #",
-        "#           #           #           #           #   d       #",
-        "#           #           #           #           #           #",
-        "&###########&#####1#####&###########&###########&###########&"
+        "   ###########################   ",
+        "  # * d #     d #    d  #   r #  ",
+        " #     d#  d    #  d    #  rt r# ",
+        "# d     e    c  e       #r      #",
+        "# c     e   d   e       # d   d #",
+        "#       e       e  d    #       #",
+        "# d    @#    d  #     r # c d c #",
+        "#     d # d     #  c    #       #",
+        "###eee#############eee#####eee###",
+        "#       #   d   #       #       #",
+        "#   d   # d     #   r c #  d  c #",
+        "#      d#  c    e       e c   d #",
+        "#d      #       e d     e  d    #",
+        "#       #   d   e  d    e   c   #",
+        "#    d  # d     #c      # d     #",
+        "#       #       #    d  #     d #",
+        "###eee#############eee###########",
+        "#       #     d #       # rd   r#",
+        "#    d  # d     #  d c  #       #",
+        "# d c   #   d   e    d  e    r  #",
+        "#       #       ec      e   r   #",
+        "#    d  #   d   e     d e       #",
+        "#     d #       #  c    #   c  r#",
+        "#       #     d #  d    # r     #",
+        "###eee#####eee#############eee###",
+        "#     d #       # d     #     r #",
+        "#d      # d    d#    d  #r  c   #",
+        "#  c    e   c   #       e   d   #",
+        "#   d   e     d # d     e  c    #",
+        "#       e       #       e    c  #",
+        " #d  c  #  d    #    d  # d     #",
+        "  #     #      d#       #     d #",
+        "   #################1#######   # ",
+        "                   ###      ##   "
+      ]
+    },
+    2: {
+      0: [
+        "   ###########################   ",
+        "  #     #       #   *   #     #  ",
+        " #      #       #       #      # ",
+        "#       #       e       e       #",
+        "#       #       e       e       #",
+        "#       #       e       e       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "###eee#############eee###########",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       e       e       e       #",
+        "#       e       e       e       #",
+        "#       e       e       e       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#################################",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#     d #       #       #       #",
+        "# d     #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#   d   #       #       #       #",
+        "#################################",
+        "#    d  #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#  d    #       #       #       #",
+        "#     d #       #       #       #",
+        "#1      #       #       #      # ",
+        " ##     #       #       #     #  ",
+        "   ###########################   "
       ],
       1: [
-        "&###########&###########&###########&###########&###########&",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "&###########&###########&###########&###########&###########&",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "&###########&###########&###########&###########&###########&",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "&###########&###########&###########&###########&###########&",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "&###########&###########&###########&###########&###########&",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "&###########&###########&###########&###########&###########&",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "#           #           #           #           #           #",
-        "&###########&###########&###########&###########&###########&"
+        "   #################0#########   ",
+        "  #     #       #   *   #     #  ",
+        " #      #       #       #      # ",
+        "#       #       e       e       #",
+        "#       #       e       e       #",
+        "#       #       e       e       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "###################eee###########",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#################################",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#################################",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        " #      #       #       #      # ",
+        "  #     #       #       #     #  ",
+        "   ###########################   "
+      ]
+    },
+    3: {
+      0: [
+        "   #################0#########   ",
+        "  #     #       #   *   #     #  ",
+        " #      #       #       #      # ",
+        "#       #       e       e       #",
+        "#       #       e       e       #",
+        "#       #       e       e       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "###################eee###########",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#################################",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#################################",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        " #      #       #       #      # ",
+        "  #     #       #       #     #  ",
+        "   ###########################   "
+      ],
+      1: [
+        "   #################0#########   ",
+        "  #     #       #   *   #     #  ",
+        " #      #       #       #      # ",
+        "#       #       e       e       #",
+        "#       #       e       e       #",
+        "#       #       e       e       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "###################eee###########",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#################################",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#################################",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        " #      #       #       #      # ",
+        "  #     #       #       #     #  ",
+        "   ###########################   "
+      ]
+    },
+    4: {
+      0: [
+        "   #################0#########   ",
+        "  #     #       #   *   #     #  ",
+        " #      #       #       #      # ",
+        "#       #       e       e       #",
+        "#       #       e       e       #",
+        "#       #       e       e       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "###################eee###########",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#################################",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#################################",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        " #      #       #       #      # ",
+        "  #     #       #       #     #  ",
+        "   ###########################   "
+      ],
+      1: [
+        "   #################0#########   ",
+        "  #     #       #   *   #     #  ",
+        " #      #       #       #      # ",
+        "#       #       e       e       #",
+        "#       #       e       e       #",
+        "#       #       e       e       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "###################eee###########",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#################################",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#################################",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        " #      #       #       #      # ",
+        "  #     #       #       #     #  ",
+        "   ###########################   "
+      ]
+    },
+    5: {
+      0: [
+        "###############################*##############################"
       ]
     }
   };
@@ -2933,30 +3049,133 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
   __name(entierAleatoire, "entierAleatoire");
   function loadAssets() {
     loadSprite("bean", "sprites/bean.png");
-    loadSprite("sand", "sprites/sand.png");
-    loadSprite("corail", "sprites/corail.png");
-    loadSprite("sable", "sprites/sable.png", {
+    loadSprite("wall", "sprites/wall.png");
+    loadSprite("decoration", "sprites/decoration.png", {
+      sliceX: 8,
+      sliceY: 1,
+      anims: {
+        idle: {
+          from: 0,
+          to: 7,
+          loop: true,
+          pingpong: true
+        }
+      }
+    });
+    loadSprite("pierre", "sprites/pierre.png");
+    loadSprite("jambon", "sprites/jambon.png");
+    loadSprite("palme", "sprites/palme.png");
+    loadSprite("coeur", "sprites/coeur.png");
+    loadSprite("harpon", "sprites/harpon.png");
+    loadSprite("perle", "sprites/perle.png");
+    loadSprite("courone", "sprites/courone.png");
+    loadSprite("trident", "sprites/trident.png");
+    loadSprite("anemone", "sprites/anemone.png");
+    loadSprite("menuBackground", "sprites/menuBackground.png");
+    loadSprite("sortie", "sprites/sortie.png");
+    loadSprite("eau2", "sprites/eau2.jpg");
+    loadSprite("eau", "sprites/eau.png", {
+      sliceX: 3,
+      sliceY: 1
+    });
+    loadSprite("algues", "sprites/algues.png", {
+      sliceX: 8,
+      sliceY: 1,
+      anims: {
+        idle: {
+          from: 0,
+          to: 7,
+          loop: true,
+          pingpong: true
+        }
+      }
+    });
+    loadSprite("mur", "sprites/mur.png", {
       sliceX: 2,
       sliceY: 1
     });
+    loadSprite("murSable", "sprites/murSable.png", {
+      sliceX: 2,
+      sliceY: 1
+    });
+    loadSprite("sand", "sprites/sand.png", {
+      sliceX: 2,
+      sliceY: 1
+    });
+    loadSprite("projectil", "sprites/projectil.png", {
+      sliceX: 4,
+      sliceY: 1
+    });
+    loadSprite("trident", "sprites/trident.png", {
+      sliceX: 4,
+      sliceY: 1
+    });
     loadSprite("piranha", "sprites/piranha.png", {
-      sliceX: 21,
+      sliceX: 14,
       sliceY: 1,
       anims: {
-        down: {
+        runY: {
           from: 0,
           to: 6,
           loop: true
         },
-        right: {
+        runX: {
           from: 7,
           to: 13,
           loop: true
-        },
-        up: {
-          from: 14,
-          to: 20,
+        }
+      }
+    });
+    loadSprite("turtle", "sprites/turtle.png", {
+      sliceX: 12,
+      sliceY: 1,
+      anims: {
+        runX: {
+          from: 6,
+          to: 11,
           loop: true
+        },
+        runY: {
+          from: 0,
+          to: 5,
+          loop: true
+        }
+      }
+    });
+    loadSprite("crab", "sprites/crab.png", {
+      sliceX: 12,
+      sliceY: 1,
+      anims: {
+        runX: {
+          from: 6,
+          to: 11,
+          loop: true
+        },
+        runY: {
+          from: 0,
+          to: 5,
+          loop: true
+        }
+      }
+    });
+    loadSprite("pieuvre", "sprites/pieuvre.png", {
+      sliceX: 8,
+      sliceY: 1,
+      anims: {
+        runX: {
+          from: 0,
+          to: 3,
+          loop: true
+        },
+        runY: {
+          from: 0,
+          to: 3,
+          loop: true
+        },
+        attack: {
+          from: 4,
+          to: 7,
+          loop: false
         }
       }
     });
@@ -2965,11 +3184,57 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
 
   // code/main.js
   Es({
-    fullscreen: true
+    fullscreen: true,
+    font: "sinko",
+    background: [76, 170, 237]
   });
-  var MOVE_SPEED = 180;
+  var ENEMY_SPEED = 40;
+  var BULLET_SPEED = 100;
+  var TABDECO = ["decoration", "algues", "anemone"];
   loadAssets();
-  scene("game", (etage = 0) => {
+  scene("menu", () => {
+    const background = add([
+      sprite("menuBackground"),
+      scale(13),
+      pos(width() / 2 - width() / 4, -50)
+    ]);
+    const gameTitle = add([
+      text("Turtle Abyss", { size: 62, width: 596 }),
+      pos(width() / 2 - 292, 200)
+    ]);
+    const startButton = add([
+      rect(480, 100),
+      pos(width() / 2 - 240, 460),
+      area(),
+      opacity(0.5)
+    ]);
+    const startTitle = add([
+      text("Play game", {
+        size: 40
+      }),
+      pos(width() / 2 - 140, 490)
+    ]);
+    const aboutButton = add([
+      rect(480, 100),
+      pos(width() / 2 - 240, 590),
+      area(),
+      opacity(0.5)
+    ]);
+    const aboutTitle = add([
+      text("About", {
+        size: 40
+      }),
+      pos(width() / 2 - 80, 620)
+    ]);
+    startButton.onClick(() => go("game", { etage: 0 }));
+    aboutButton.onClick(() => go("about"));
+  });
+  scene("about", () => {
+    add([
+      text("Jeu cree par :")
+    ]);
+  });
+  scene("game", ({ etage }) => {
     let level = null;
     const nbEtages = Object.keys(maps).length;
     console.log(`${nbEtages} \xE9tage.s`);
@@ -2988,22 +3253,15 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       height: 64,
       pos: vec2(0, 0),
       "#": () => [
-        sprite("sand"),
+        sprite("pierre"),
         area(),
+        scale(2),
         solid()
       ],
-      "c": () => [
-        sprite("corail"),
-        area(),
-        solid(),
+      "w": () => [
+        sprite("eau2", { frame: 0 }),
         scale(2)
-      ],
-      any(ch) {
-        return [
-          sprite("sable", { frame: ~~rand(0, 2) }),
-          scale(2)
-        ];
-      }
+      ]
     });
     addLevel(mapLoaded, {
       width: 64,
@@ -3011,48 +3269,263 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       "p": () => [
         sprite("piranha"),
         area(),
-        "enemy"
+        solid(),
+        scale(1.5),
+        state("move", ["move"]),
+        "enemy",
+        "playXAnim",
+        "piranha"
+      ],
+      "k": () => [
+        sprite("pieuvre"),
+        area(),
+        solid(),
+        scale(1.5),
+        state("move", ["idle", "attack", "move"]),
+        "enemy",
+        "playXAnim",
+        "pieuvre"
+      ],
+      "c": () => [
+        sprite("crab"),
+        area(),
+        solid(),
+        scale(1.5),
+        "enemy",
+        "playXAnim"
+      ],
+      "@": () => [
+        sprite("palme"),
+        area(),
+        "speedBoost",
+        scale(2)
+      ],
+      "j": () => [
+        sprite("jambon"),
+        area(),
+        "regen",
+        scale(1.5)
+      ],
+      "h": () => [
+        sprite("coeur"),
+        area(),
+        "pvUp",
+        scale(1.5)
+      ],
+      "d": () => [
+        sprite(TABDECO[randi(0, 2)]),
+        area(),
+        scale(2),
+        "decoration"
+      ],
+      "1": () => [
+        sprite("sortie"),
+        area(),
+        scale(2),
+        "sortie"
+      ],
+      "*": () => [
+        sprite("turtle"),
+        pos(120, 80),
+        area(),
+        solid(),
+        scale(1.5),
+        {
+          pv: 3,
+          pvMax: 3,
+          move_speed: 180,
+          inv: false,
+          isFrozen: false,
+          freeze(frozen = true) {
+            this.isFrozen = frozen;
+          }
+        },
+        "player"
       ]
     });
-    const player = add([
-      sprite("piranha"),
-      pos(120, 80),
-      area(),
-      solid(),
-      scale(2)
-    ]);
-    player.onCollide("enemy", (enemy) => {
-      destroy(enemy);
+    every("enemy", (e) => {
+      e.play("runX");
+    });
+    every("decoration", (e) => {
+      e.play("idle");
+    });
+    every("pieuvre", (e) => {
+      e.onStateEnter("move", () => {
+        e.play("runX");
+        wait(2, () => e.enterState("idle"));
+      });
+      e.onStateUpdate("move", () => {
+        if (!player.exists())
+          return;
+        const dir = player.pos.sub(e.pos).unit();
+        let dir2 = dir.scale(ENEMY_SPEED);
+        e.move(dir2);
+        if (dir2.x < 0)
+          e.flipX(true);
+        else
+          e.flipX(false);
+      });
+      e.onStateEnter("idle", () => {
+        if (!e.exists())
+          return;
+        wait(0.5, () => e.enterState("attack"));
+      });
+      e.onStateEnter("attack", () => {
+        wait(0.5, () => e.enterState("move"));
+        e.play("attack");
+        if (!player.exists())
+          return;
+        const dir = player.pos.sub(e.pos).unit();
+        add([
+          sprite("projectil", { frame: ~~rand(0, 4) }),
+          pos(e.pos),
+          move(dir, BULLET_SPEED),
+          rect(12, 12),
+          area(),
+          cleanup(),
+          origin("center"),
+          color(CYAN),
+          "bullet"
+        ]);
+      });
+      e.enterState("move");
+    });
+    every("piranha", (enemy) => {
+      enemy.onStateUpdate("move", () => {
+        if (!player.exists())
+          return;
+        const dir = player.pos.sub(enemy.pos).unit();
+        let dir2 = dir.scale(ENEMY_SPEED);
+        enemy.move(dir2);
+        if (dir2.x < 0)
+          enemy.flipX(true);
+        else
+          enemy.flipX(false);
+      });
+    });
+    const player = get("player")[0];
+    camScale(2);
+    player.onCollide("speedBoost", (speedBoost) => {
+      destroy(speedBoost);
       upSpeed();
     });
+    player.onCollide("regen", (regen) => {
+      if (player.pv != player.pvMax) {
+        destroy(regen);
+        player.pv += 1;
+      }
+      pvLabel.text = player.pv + "/" + player.pvMax;
+    });
+    player.onCollide("enemy", (enemy) => {
+      takeDamage(-1);
+    });
+    player.onCollide("bullet", (bullet) => {
+      takeDamage(-1);
+      destroy(bullet);
+    });
+    onKeyPress("space", () => {
+      let max = 80;
+      let en = null;
+      let distanceEn = 1e5;
+      every("enemy", (enemy) => {
+        if (player.pos.dist(enemy.pos) <= max) {
+          if (player.pos.dist(enemy.pos) <= distanceEn) {
+            distanceEn = player.pos.dist(enemy.pos);
+            en = enemy;
+          }
+        }
+      });
+      if (en != null) {
+        destroy(en);
+      }
+    });
+    player.onCollide("decoration", () => {
+      player.move_speed -= 100;
+      wait(0.75, () => {
+        player.move_speed += 100;
+      });
+    });
+    player.onCollide("pvUp", (pvUp) => {
+      destroy(pvUp);
+      player.pv += 1;
+      player.pvMax += 1;
+      pvLabel.text = player.pv + "/" + player.pvMax;
+    });
+    player.onCollide("sortie", () => {
+      go("game", { etage: etage + 1 });
+    });
     keyDown(["left", "q"], () => {
+      if (player.isFrozen)
+        return;
       player.flipX(true);
-      player.move(-MOVE_SPEED, 0);
+      player.move(-player.move_speed, 0);
     });
-    onKeyPress(["left", "q"], () => player.play("right"));
     keyDown(["right", "d"], () => {
+      if (player.isFrozen)
+        return;
       player.flipX(false);
-      player.move(MOVE_SPEED, 0);
+      player.move(player.move_speed, 0);
     });
-    onKeyPress(["right", "d"], () => player.play("right"));
     keyDown(["up", "z"], () => {
-      player.move(0, -MOVE_SPEED);
+      if (player.isFrozen)
+        return;
+      player.flipY(true);
+      player.move(0, -player.move_speed);
     });
-    onKeyPress(["up", "z"], () => player.play("up"));
     keyDown(["down", "s"], () => {
-      player.move(0, MOVE_SPEED);
+      if (player.isFrozen)
+        return;
+      player.flipY(false);
+      player.move(0, player.move_speed);
     });
-    onKeyPress(["down", "s"], () => player.play("down"));
+    onKeyPress(["left", "q", "right", "d", "up", "z", "down", "s"], () => {
+      if (player.isFrozen)
+        return;
+      if (isKeyDown("left") || isKeyDown("q") || isKeyDown("right") || isKeyDown("d")) {
+        player.play("runX");
+      } else if (isKeyDown("up") || isKeyDown("z") || isKeyDown("down") || isKeyDown("s")) {
+        player.play("runY");
+      }
+    });
+    player.onUpdate(() => {
+      camPos(player.pos);
+    });
+    if (etage === 0) {
+      go("game", { etage: 1 });
+    }
+    function takeDamage(nb) {
+      if (nb > 0) {
+        if (player.pv < player.pvMax) {
+          player.pv += nb;
+        }
+      }
+      if (!player.inv) {
+        player.pv += nb;
+        shake();
+        player.inv = true;
+        wait(1, () => {
+          player.inv = false;
+        });
+      }
+      pvLabel.text = player.pv + "/" + player.pvMax;
+      if (player.pv == 0)
+        go("menu");
+    }
+    __name(takeDamage, "takeDamage");
+    const pvLabel = add([
+      sprite("coeur"),
+      text(player.pv + "/" + player.pvMax),
+      pos(12),
+      scale(1.8),
+      fixed()
+    ]);
+    function upSpeed() {
+      player.move_speed += 80;
+    }
+    __name(upSpeed, "upSpeed");
     onKeyPress("a", upSpeed);
   });
   onKeyPress("b", burp);
-  function upSpeed() {
-    MOVE_SPEED = 360;
-    wait(10, () => {
-      MOVE_SPEED = 120;
-    });
-  }
-  __name(upSpeed, "upSpeed");
-  go("game");
+  go("menu");
 })();
 //# sourceMappingURL=game.js.map

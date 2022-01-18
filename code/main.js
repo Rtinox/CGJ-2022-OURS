@@ -2,18 +2,86 @@ import kaboom from "kaboom"
 import { maps } from "./etages"
 import { entierAleatoire, loadAssets } from "./utils"
 
+
 // initialize context
+
+
 kaboom({
   fullscreen: true,
+  font: "sinko",
+  background: [76, 170, 237]
 })
 
 //init player vars
-let MOVE_SPEED = 180
+const ENEMY_SPEED = 40
+const BULLET_SPEED = 100
+var TABDECO = ["decoration","algues","anemone"];
+
 
 // load assets
 loadAssets();
 
-scene("game", (etage = 0) => {
+
+// ============ MENU =============
+scene("menu", () => {
+    
+  const background = add([
+    sprite("menuBackground"),
+    scale(13),
+    pos(width()/2-width()/4, -50)
+  ])
+
+  const gameTitle = add([
+    text("Turtle Abyss", {size: 62, width:596}),
+    pos(width()/2-292, 200),
+  ])
+
+  const startButton = add([
+		rect(480, 100),
+		pos(width()/2-240, 460),
+    area(),
+    opacity(0.5),
+	]);
+
+  const startTitle = add([
+    text("Play game", {
+      size: 40,
+    }),
+    pos(width()/2-140, 490),
+  ])
+
+  const aboutButton = add([
+		rect(480, 100),
+		pos(width()/2-240, 590),
+    area(),
+    opacity(0.5),
+	]);
+
+  const aboutTitle = add([
+    text("About", {
+      size: 40
+    }),
+    pos(width()/2-80, 620),
+  ])
+
+	startButton.onClick(() => go("game", {etage: 0}));
+  aboutButton.onClick(() => go("about"));
+
+});
+2
+// ========== ABOUT =============
+
+scene("about" , () => {
+
+  add([
+    text("Jeu cree par :"),
+  ])
+
+});
+
+
+
+scene("game", ({etage}) => {
   // ============= LEVELS =================
   let level = null;
 
@@ -34,27 +102,22 @@ scene("game", (etage = 0) => {
   console.log(`Etage: ${etage}, Random: ${random}`)
   console.log(mapLoaded)
 
+
   addLevel(mapLoaded, {
 		width: 64,
 		height: 64,
 		pos: vec2(0, 0),
 		"#": () => [
-			sprite("sand"),
+			sprite("pierre"),
 			area(),
-			solid(),
-		],
-		"c": () => [
-			sprite("corail"),
-			area(),
-			solid(),
       scale(2),
+			solid(),
 		],
-    any(ch) {
-			return [
-        sprite("sable", { frame: ~~rand(0, 2) }),
-        scale(2)
-      ]
-		},
+    "w": () => 
+    [
+      sprite("eau2", { frame: 0 }),
+      scale(2)
+    ]
 	})
 
   addLevel(mapLoaded, {
@@ -64,44 +127,326 @@ scene("game", (etage = 0) => {
     [
       sprite("piranha"),
       area(),
+      solid(),
+      scale(1.5),
+      state("move", [ "move" ]),
       "enemy",
+      "playXAnim",
+      "piranha"
+    ],
+    "k": () => 
+    [
+      sprite("pieuvre"),
+      area(),
+      solid(),
+      scale(1.5),
+      state("move", [ "idle", "attack", "move", ]),
+      "enemy",
+      "playXAnim",
+      "pieuvre"
+    ],
+    "c": () => 
+    [
+      sprite("crab"),
+      area(),
+      solid(),
+      scale(1.5),
+      "enemy",
+      "playXAnim"
+    ],
+     "@": () => 
+    [
+      sprite("palme"),
+      area(),
+      "speedBoost",
+      scale(2),
+    ],
+     "j": () => 
+    [
+      sprite("jambon"),
+      area(),
+      "regen",
+      scale(1.5),
+    ],
+     "h": () => 
+    [
+      sprite("coeur"),
+      area(),
+      "pvUp",
+      scale(1.5),
+    ],
+		"d": () => [
+			sprite(TABDECO[randi(0,2)]), //TABDECO[randi(0,2)]
+			area(),
+      scale(2),
+      "decoration"
+		],
+		"1": () => [
+			sprite("sortie"),
+			area(),
+      scale(2),
+      "sortie",
+		],
+    "*": () => 
+    [
+      sprite("turtle"),
+      pos(120, 80),
+      area(),
+      solid(),
+      scale(1.5),
+      {
+        pv: 3,
+        pvMax: 3,
+        move_speed: 180,
+        inv: false,
+        isFrozen: false,
+        freeze(frozen = true) {
+          this.isFrozen = frozen;
+        },
+      },
+      "player"
     ],
   })
 
-  // ==================== MOBS ======================= 
-  const player = add([
-    sprite("piranha"),  // renders as a sprite
-    pos(120, 80),    // position in world
-    area(),          // has a collider
-    solid(),
-    scale(2)
-  ]);
+  every("enemy", (e) => 
+  {
+    e.play("runX");
+  });
 
-  player.onCollide("enemy", (enemy) => {
-	  destroy(enemy)
+  every("decoration", (e) => {
+    e.play("idle");
+  })
+
+  every("pieuvre", (e) => 
+  {
+    e.onStateEnter("move", () => {
+      e.play("runX");
+	    wait(2, () => e.enterState("idle"))
+    })
+
+    e.onStateUpdate("move", () => {
+	    if (!player.exists()) return
+	    const dir = player.pos.sub(e.pos).unit()
+      let dir2 = dir.scale(ENEMY_SPEED);
+	    e.move(dir2)
+      if(dir2.x < 0) e.flipX(true);
+      else e.flipX(false);
+    })
+
+    e.onStateEnter("idle", () => {
+      if (!e.exists()) return
+	    wait(0.5, () => e.enterState("attack"))
+    })
+
+    e.onStateEnter("attack", () => {
+    	wait(0.5, () => e.enterState("move"))
+      e.play("attack")
+    
+    	// Don't do anything if player doesn't exist anymore
+    	if (!player.exists()) return
+    
+    	const dir = player.pos.sub(e.pos).unit()
+    
+    	add([
+        sprite("projectil", { frame: ~~rand(0, 4) }),
+    		pos(e.pos),
+    		move(dir, BULLET_SPEED),
+    		rect(12, 12),
+    		area(),
+    		cleanup(),
+    		origin("center"),
+    		color(CYAN),
+    		"bullet",
+    	])
+    
+    })
+    
+    e.enterState("move")
+  })
+
+  every("piranha", (enemy) => 
+  {
+    enemy.onStateUpdate("move", () => {
+    	if (!player.exists()) return
+    	const dir = player.pos.sub(enemy.pos).unit()
+      let dir2 = dir.scale(ENEMY_SPEED);
+    	enemy.move(dir2)
+      if(dir2.x < 0) enemy.flipX(true);
+      else enemy.flipX(false);
+    })
+  })
+ 
+  // ==================== Player ======================= 
+  const player = get("player")[0];
+  camScale(2)
+
+  player.onCollide("speedBoost", (speedBoost) => {
+	  destroy(speedBoost)
     upSpeed()
   })
 
-  // ============== DEPLACEMENTS =================
-
-  keyDown(['left','q'], () => {
-    player.flipX(true)
-    player.move(-MOVE_SPEED, 0)
+    player.onCollide("regen", (regen) => {
+	  
+    if (player.pv != player.pvMax){
+      destroy(regen)
+      player.pv += 1
+      }
+    pvLabel.text = player.pv+ "/" +player.pvMax
   })
-  onKeyPress(['left','q'], () => player.play('right'))
+  
+  player.onCollide("enemy", (enemy) => {
+    takeDamage(-1)
+    //pvLabel.text = player.pv+ "/" +player.pvMax
+  })
+  player.onCollide("bullet", (bullet) => {
+    takeDamage(-1)
+    destroy(bullet)
+    //pvLabel.text = player.pv+ "/" +player.pvMax
+  })
+  onKeyPress("space", () => {
+    let max = 80;
+    let en = null;
+    let distanceEn = 100000 
+    every("enemy", (enemy) => {
+      if(player.pos.dist(enemy.pos) <= max){
+        if(player.pos.dist(enemy.pos) <= distanceEn){
+          distanceEn = player.pos.dist(enemy.pos)
+          en = enemy
+        }
+      }
+    })
+    if (en != null){
+      destroy(en)  
+    }
+  })
+
+  player.onCollide("decoration", () => {
+    player.move_speed -= 100;
+    wait(0.75, () => {
+      player.move_speed += 100;
+    })
+  });
+  
+  player.onCollide("pvUp", (pvUp) => {
+    destroy(pvUp)
+    player.pv += 1
+    player.pvMax += 1
+    pvLabel.text = player.pv+ "/" +player.pvMax
+  })
+
+  player.onCollide("sortie", () => {
+    go("game", {etage: etage+1});
+  })
+  
+  // ============== DEPLACEMENTS =================
+  keyDown(['left','q'], () => {
+    if (player.isFrozen) return;
+    player.flipX(true)
+    player.move(-player.move_speed, 0)
+  })
 
   keyDown(['right','d'], () => {
+    if (player.isFrozen) return;
     player.flipX(false)
-    player.move(MOVE_SPEED, 0)
+    player.move(player.move_speed, 0)
   })
-  onKeyPress(['right','d'], () => player.play('right'))
 
-  keyDown(['up','z'], () => { player.move(0, -MOVE_SPEED) })
-  onKeyPress(['up','z'], () => player.play("up"))
+  keyDown(['up','z'], () => { 
+    if (player.isFrozen) return;
+    player.flipY(true);
+    player.move(0, -player.move_speed) 
+  })
+  
+  keyDown(['down','s'], () => { 
+    if (player.isFrozen) return;
+    player.flipY(false);
+    player.move(0, player.move_speed)
+  })
+  
+  
 
-  keyDown(['down','s'], () => { player.move(0, MOVE_SPEED) })
-  onKeyPress(['down','s'], () => player.play("down"))
+  onKeyPress(['left','q', 'right','d', 'up','z', 'down','s'], () => {
+    if (player.isFrozen) return;
+    if(isKeyDown("left") || isKeyDown("q") || isKeyDown("right") || isKeyDown("d")) 
+    {
+      player.play("runX");
+    }
+    else if(isKeyDown("up") || isKeyDown("z") || isKeyDown("down") || isKeyDown("s"))
+    {
+      player.play("runY");
+    }
+  })
 
+  player.onUpdate(() => {
+	  camPos(player.pos)
+  })
+  
+
+  if(etage === 0)
+  {
+    /*player.freeze();
+    let c = 0;
+    
+    loop(0.15, () => {
+      if(c >= 0 && c < 10) player.move(0, MOVE_SPEED*2);
+      else if(c >= 10 && c < 13)
+      {
+        player.play("runX");
+        player.move(MOVE_SPEED*2, 0);
+      }
+      else if(c >= 13 && c < 40) 
+      {
+        player.play("runY");
+        player.move(0, MOVE_SPEED*2);
+      }
+      else if(c >= 40 && c < 50) 
+      {
+        player.play("runX");
+        player.flipX(true);
+        player.move(-MOVE_SPEED*2, 0);
+      }
+      else if(c >= 50 && c < 95) 
+      {
+        player.play("runY");
+        player.flipX(false);
+        player.move(0, MOVE_SPEED*2);
+      }
+      else if(c == 95) go("game", { etage: 1 })
+      c++;
+    })*/
+    go("game", { etage: 1 })
+  }
+
+  //fonction de perte de point de vie (pour la mort aussi)
+  function takeDamage(nb){
+    if (nb >0) {
+      if (player.pv < player.pvMax){
+        player.pv += nb
+      }
+    }
+    if(!player.inv){
+      player.pv += nb
+      shake();
+      player.inv = true
+      wait(1, () => {
+        player.inv = false
+      })
+    }
+    pvLabel.text = player.pv+ "/" + player.pvMax;
+    if (player.pv == 0) go("menu");
+  }
+
+   const pvLabel = add([
+    sprite("coeur"),
+  	text(player.pv + "/" + player.pvMax),
+  	pos(12),
+    scale(1.8),
+    fixed(),
+  ])
+
+  function upSpeed(){
+    player.move_speed += 80
+  }
   
   onKeyPress("a", upSpeed)
 })
@@ -113,14 +458,8 @@ onKeyPress("b", burp)
 
 
 //boost de la vitesse
-function upSpeed(){
-  //if (MOVE_SPEED <= 120){MOVE_SPEED = 360}
-  //else {MOVE_SPEED = 120}
-  MOVE_SPEED = 360
-  wait(10, () => {
-    MOVE_SPEED = 120
-  })
-  
-}
 
-go("game")
+
+
+
+go("menu")
