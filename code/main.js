@@ -4,8 +4,6 @@ import { entierAleatoire, loadAssets } from "./utils"
 
 
 // initialize context
-
-
 kaboom({
   fullscreen: true,
   font: "sinko",
@@ -28,7 +26,7 @@ scene("menu", () => {
   const background = add([
     sprite("menuBackground"),
     scale(13),
-    pos(width()/2-width()/4, -50)
+    pos(-30, -50)
   ])
 
   const gameTitle = add([
@@ -66,17 +64,17 @@ scene("menu", () => {
 
 	startButton.onClick(() => go("game", {etage: 0}));
   aboutButton.onClick(() => go("about"));
-
 });
-2
+
 // ========== ABOUT =============
-
 scene("about" , () => {
-
   add([
-    text("Jeu cree par :"),
+    text("Jeu cree par : aaaaa"),
   ])
 
+  onKeyPress("r", () => {
+    go("menu");
+  })
 });
 
 
@@ -115,7 +113,12 @@ scene("game", ({etage}) => {
 		],
     "w": () => 
     [
-      sprite("eau2", { frame: 0 }),
+      sprite("eau2"),
+      scale(2)
+    ],
+    "s": () => 
+    [
+      sprite("sand", { frame: ~~rand(0, 1) }),
       scale(2)
     ]
 	})
@@ -129,6 +132,7 @@ scene("game", ({etage}) => {
       area(),
       solid(),
       scale(1.5),
+      health(2),
       state("move", [ "move" ]),
       "enemy",
       "playXAnim",
@@ -140,6 +144,7 @@ scene("game", ({etage}) => {
       area(),
       solid(),
       scale(1.5),
+      health(3),
       state("move", [ "idle", "attack", "move", ]),
       "enemy",
       "playXAnim",
@@ -151,6 +156,7 @@ scene("game", ({etage}) => {
       area(),
       solid(),
       scale(1.5),
+      health(2),
       "enemy",
       "playXAnim"
     ],
@@ -176,7 +182,7 @@ scene("game", ({etage}) => {
       scale(1.5),
     ],
 		"d": () => [
-			sprite(TABDECO[randi(0,2)]), //TABDECO[randi(0,2)]
+			sprite(TABDECO[randi(0,3)]), //TABDECO[randi(0,2)]
 			area(),
       scale(2),
       "decoration"
@@ -199,6 +205,7 @@ scene("game", ({etage}) => {
         pvMax: 3,
         move_speed: 180,
         inv: false,
+        canAttak: true,
         isFrozen: false,
         freeze(frozen = true) {
           this.isFrozen = frozen;
@@ -211,6 +218,16 @@ scene("game", ({etage}) => {
   every("enemy", (e) => 
   {
     e.play("runX");
+
+  
+    e.on("death", () => {
+      destroy(e);
+      burp();
+    })
+
+    e.on("hurt", () => {
+      play("roblox")
+    })
   });
 
   every("decoration", (e) => {
@@ -303,21 +320,41 @@ scene("game", ({etage}) => {
     destroy(bullet)
     //pvLabel.text = player.pv+ "/" +player.pvMax
   })
+
+
+  every("morsure", (e) => {
+    e.play("mord");
+  })
+
   onKeyPress("space", () => {
-    let max = 80;
-    let en = null;
-    let distanceEn = 100000 
-    every("enemy", (enemy) => {
-      if(player.pos.dist(enemy.pos) <= max){
-        if(player.pos.dist(enemy.pos) <= distanceEn){
-          distanceEn = player.pos.dist(enemy.pos)
-          en = enemy
+    if(player.canAttak){
+      let max = 80;
+      let en = null;
+      let distanceEn = 100000 
+      every("enemy", (enemy) => {
+        if(player.pos.dist(enemy.pos) <= max){
+          if(player.pos.dist(enemy.pos) <= distanceEn){
+            distanceEn = player.pos.dist(enemy.pos)
+            en = enemy
+          }
         }
+      })
+
+      const mordre = add([
+        pos(),
+        sprite("morsure"),
+        origin("bot"),
+        rotate(0),
+        follow(player, vec2(-4, 9)),
+      ])
+      wait(0.75, () => {
+        destroy(mordre)
+      })
+      if (en != null){
+        en.hurt(1)
       }
-    })
-    if (en != null){
-      destroy(en)  
     }
+    
   })
 
   player.onCollide("decoration", () => {
@@ -384,37 +421,47 @@ scene("game", ({etage}) => {
 
   if(etage === 0)
   {
-    /*player.freeze();
+    showDialog("Animation en cours...", 2);
+    wait(2, () => 
+    {
+      showDialog("La tortue nait et rejoint la mer", 3)
+    });
+    
+    wait(15, () => 
+    {
+      showDialog("Navigation vers la premiere profondeur", 3)
+    });
+    player.freeze();
     let c = 0;
     
-    loop(0.15, () => {
-      if(c >= 0 && c < 10) player.move(0, MOVE_SPEED*2);
+    loop(0.2, () => {
+      if(c >= 0 && c < 10) player.move(0, player.move_speed*2);
       else if(c >= 10 && c < 13)
       {
         player.play("runX");
-        player.move(MOVE_SPEED*2, 0);
+        player.move(player.move_speed*2, 0);
       }
       else if(c >= 13 && c < 40) 
       {
         player.play("runY");
-        player.move(0, MOVE_SPEED*2);
+        player.move(0, player.move_speed*2);
       }
       else if(c >= 40 && c < 50) 
       {
         player.play("runX");
         player.flipX(true);
-        player.move(-MOVE_SPEED*2, 0);
+        player.move(-player.move_speed*2, 0);
       }
       else if(c >= 50 && c < 95) 
       {
         player.play("runY");
         player.flipX(false);
-        player.move(0, MOVE_SPEED*2);
+        player.move(0, player.move_speed*2);
       }
       else if(c == 95) go("game", { etage: 1 })
       c++;
-    })*/
-    go("game", { etage: 1 })
+    })
+    //go("game", { etage: 1 })
   }
 
   //fonction de perte de point de vie (pour la mort aussi)
@@ -432,7 +479,7 @@ scene("game", ({etage}) => {
         player.inv = false
       })
     }
-    pvLabel.text = player.pv+ "/" + player.pvMax;
+    pvLabel.text = player.pv + "/" + player.pvMax;
     if (player.pv == 0) go("menu");
   }
 
@@ -449,17 +496,44 @@ scene("game", ({etage}) => {
   }
   
   onKeyPress("a", upSpeed)
+  onKeyPress("b", burp)
+  onKeyPress("r", () => {
+    go("menu");
+  })
 })
 
+function showDialog(message = "", delay = 2)
+{
+  console.log("Dialogue: " + message + ` ${delay}s`)
+  // Text bubble
+  let textbox = add([
+  	rect(width() - 200, 80, { radius: 32 }),
+  	origin("center"),
+  	pos(center().x, height() - 60),
+  	outline(2),
+    area(),
+    color(0, 0, 0),
+    opacity(0.25),
+    fixed(),
+    "dialogs"
+  ])
+  
+  // Text
+  let txt = add([
+  	text(message, { size: 32, width: width() - 230 }),
+  	pos(textbox.pos),
+  	origin("center"),
+    fixed(),
+    "dialogs"
+  ])
+  
+  textbox.onClick(() => {
+    destroyAll("dialogs")
+  })
 
-
-// burp on "b"
-onKeyPress("b", burp)
-
-
-//boost de la vitesse
-
-
-
+  wait(delay, () => {
+    destroyAll("dialogs")
+  })
+}
 
 go("menu")

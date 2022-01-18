@@ -2750,19 +2750,19 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
   var maps = {
     0: {
       0: [
-        "                                         ",
-        "                                         ",
-        "                                         ",
-        "                    *                    ",
-        "                                         ",
-        "                                         ",
-        "                                         ",
-        "                                         ",
-        "                                         ",
-        "                                         ",
-        " w w        ww ww w  w w w w     w w     ",
-        " wwww  w  w ww wwww  wwwww w   w w w   w ",
-        "wwwww wwwww ww wwwwwwwwwwwww   wwwwwww w ",
+        "sssssssssssssssssssssssssssssssssssssssss",
+        "sssssssssssssssssssssssssssssssssssssssss",
+        "sssssssssssssssssssssssssssssssssssssssss",
+        "ssssssssssssssssssss*ssssssssssssssssssss",
+        "sssssssssssssssssssssssssssssssssssssssss",
+        "sssssssssssssssssssssssssssssssssssssssss",
+        "sssssssssssssssssssssssssssssssssssssssss",
+        "sssssssssssssssssssssssssssssssssssssssss",
+        "sssssssssssssssssssssssssssssssssssssssss",
+        "sssssssssssssssssssssssssssssssssssssssss",
+        "swswsssssssswwswwswsswswswswssssswswsssss",
+        "swwwwsswsswswwswwwwsswwwwwswsswswswssswss",
+        "wwwwwswwwwwswwswwwwwwwwwwwwwssswwwwwwwsws",
         "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
         "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
         "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
@@ -2789,7 +2789,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
         "# d     e    c  e       #r      #",
         "# c     e   d   e       # d   d #",
         "#       e       e  d    #       #",
-        "# d    @#    d  #     r # c d c #",
+        "# d     #    d  #     r # c d c #",
         "#     d # d     #  c    #       #",
         "###eee#############eee#####eee###",
         "#       #   d   #       #       #",
@@ -2817,10 +2817,8 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
         "  #     #      d#       #     d #",
         "   #################1#######   # ",
         "                   ###      ##   "
-      ]
-    },
-    2: {
-      0: [
+      ],
+      1: [
         "   ###########################   ",
         "  #     #       #   *   #     #  ",
         " #      #       #       #      # ",
@@ -2829,30 +2827,67 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
         "#       #       e       e       #",
         "#       #       #       #       #",
         "#       #       #       #       #",
+        "###################eee###########",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#################################",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       #       e       #",
+        "#       #       #       e      1#",
+        "#       #       #       e       #",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "###################eee###########",
+        "#       #       #       #       #",
+        "#       #       #       #       #",
+        "#       #       e       e       #",
+        "#       #       e       e       #",
+        "#       #       e       e       #",
+        " #      #       #       #      # ",
+        "  #     #       #       #     #  ",
+        "   ###########################   "
+      ]
+    },
+    2: {
+      0: [
+        "   ###########################   ",
+        "  #     #    pd #   *   #     #  ",
+        " #d  d  # d     # d     #      # ",
+        "# @     #   d   e    d  e  d    #",
+        "#  d    #       e       e       #",
+        "#d      #       e       e    d  #",
+        "#       #  d    #    d  #       #",
+        "#     d #       # d     # d     #",
         "###eee#############eee###########",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
+        "#     d #       #     d #     d #",
+        "# d     # d     #d      #  d    #",
         "#       e       e       e       #",
-        "#       e       e       e       #",
-        "#       e       e       e       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#################################",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#     d #       #       #       #",
-        "# d     #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#   d   #       #       #       #",
-        "#################################",
-        "#    d  #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#  d    #       #       #       #",
-        "#     d #       #       #       #",
-        "#1      #       #       #      # ",
-        " ##     #       #       #     #  ",
+        "#    d  e       e  d    e       #",
+        "#       e    d  e       e    d  #",
+        "# d     #       # d     #d      #",
+        "#   d   #  d    #     d #     d #",
+        "###################eee#####eee###",
+        "#       #   d   #      d#     d #",
+        "#       #       #       # d     #",
+        "#     d e    d  # d     e       #",
+        "# d     e       #       e     d #",
+        "#       e       #    d  e       #",
+        "#       #  d    #d      #  d    #",
+        "#   d   #       #       #      d#",
+        "###eee#####eee#####eee###########",
+        "#    d  #     d #     d #   d   #",
+        "#d      # d     # d  d  #d     @#",
+        "#       #       e       e       #",
+        "#  d    # d     e   d   e       #",
+        "#     d #       e       e   d   #",
+        "#1      #   d   #  d    #      # ",
+        " ##     #       #       # d   #  ",
         "   ###########################   "
       ],
       1: [
@@ -3048,6 +3083,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
   }
   __name(entierAleatoire, "entierAleatoire");
   function loadAssets() {
+    loadSound("roblox", "sounds/bruitRoblox.mp3");
     loadSprite("bean", "sprites/bean.png");
     loadSprite("wall", "sprites/wall.png");
     loadSprite("decoration", "sprites/decoration.png", {
@@ -3070,10 +3106,21 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
     loadSprite("perle", "sprites/perle.png");
     loadSprite("courone", "sprites/courone.png");
     loadSprite("trident", "sprites/trident.png");
-    loadSprite("anemone", "sprites/anemone.png");
+    loadSprite("anemone", "sprites/anemone.png", {
+      sliceX: 8,
+      sliceY: 1,
+      anims: {
+        idle: {
+          from: 0,
+          to: 7,
+          loop: true,
+          pingpong: true
+        }
+      }
+    });
     loadSprite("menuBackground", "sprites/menuBackground.png");
     loadSprite("sortie", "sprites/sortie.png");
-    loadSprite("eau2", "sprites/eau2.jpg");
+    loadSprite("eau2", "sprites/eau2.png");
     loadSprite("eau", "sprites/eau.png", {
       sliceX: 3,
       sliceY: 1
@@ -3109,6 +3156,17 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
     loadSprite("trident", "sprites/trident.png", {
       sliceX: 4,
       sliceY: 1
+    });
+    loadSprite("morsure", "sprites/morsure.png", {
+      sliceX: 6,
+      sliceY: 1,
+      anims: {
+        mord: {
+          from: 0,
+          to: 5,
+          loop: true
+        }
+      }
     });
     loadSprite("piranha", "sprites/piranha.png", {
       sliceX: 14,
@@ -3196,7 +3254,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
     const background = add([
       sprite("menuBackground"),
       scale(13),
-      pos(width() / 2 - width() / 4, -50)
+      pos(-30, -50)
     ]);
     const gameTitle = add([
       text("Turtle Abyss", { size: 62, width: 596 }),
@@ -3231,8 +3289,11 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
   });
   scene("about", () => {
     add([
-      text("Jeu cree par :")
+      text("Jeu cree par : aaaaa")
     ]);
+    onKeyPress("r", () => {
+      go("menu");
+    });
   });
   scene("game", ({ etage }) => {
     let level = null;
@@ -3259,7 +3320,11 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
         solid()
       ],
       "w": () => [
-        sprite("eau2", { frame: 0 }),
+        sprite("eau2"),
+        scale(2)
+      ],
+      "s": () => [
+        sprite("sand", { frame: ~~rand(0, 1) }),
         scale(2)
       ]
     });
@@ -3271,6 +3336,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
         area(),
         solid(),
         scale(1.5),
+        health(2),
         state("move", ["move"]),
         "enemy",
         "playXAnim",
@@ -3281,6 +3347,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
         area(),
         solid(),
         scale(1.5),
+        health(3),
         state("move", ["idle", "attack", "move"]),
         "enemy",
         "playXAnim",
@@ -3291,6 +3358,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
         area(),
         solid(),
         scale(1.5),
+        health(2),
         "enemy",
         "playXAnim"
       ],
@@ -3313,7 +3381,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
         scale(1.5)
       ],
       "d": () => [
-        sprite(TABDECO[randi(0, 2)]),
+        sprite(TABDECO[randi(0, 3)]),
         area(),
         scale(2),
         "decoration"
@@ -3335,6 +3403,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
           pvMax: 3,
           move_speed: 180,
           inv: false,
+          canAttak: true,
           isFrozen: false,
           freeze(frozen = true) {
             this.isFrozen = frozen;
@@ -3345,6 +3414,13 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
     });
     every("enemy", (e) => {
       e.play("runX");
+      e.on("death", () => {
+        destroy(e);
+        burp();
+      });
+      e.on("hurt", () => {
+        play("roblox");
+      });
     });
     every("decoration", (e) => {
       e.play("idle");
@@ -3423,20 +3499,35 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       takeDamage(-1);
       destroy(bullet);
     });
+    every("morsure", (e) => {
+      e.play("mord");
+    });
     onKeyPress("space", () => {
-      let max = 80;
-      let en = null;
-      let distanceEn = 1e5;
-      every("enemy", (enemy) => {
-        if (player.pos.dist(enemy.pos) <= max) {
-          if (player.pos.dist(enemy.pos) <= distanceEn) {
-            distanceEn = player.pos.dist(enemy.pos);
-            en = enemy;
+      if (player.canAttak) {
+        let max = 80;
+        let en = null;
+        let distanceEn = 1e5;
+        every("enemy", (enemy) => {
+          if (player.pos.dist(enemy.pos) <= max) {
+            if (player.pos.dist(enemy.pos) <= distanceEn) {
+              distanceEn = player.pos.dist(enemy.pos);
+              en = enemy;
+            }
           }
+        });
+        const mordre = add([
+          pos(),
+          sprite("morsure"),
+          origin("bot"),
+          rotate(0),
+          follow(player, vec2(-4, 9))
+        ]);
+        wait(0.75, () => {
+          destroy(mordre);
+        });
+        if (en != null) {
+          en.hurt(1);
         }
-      });
-      if (en != null) {
-        destroy(en);
       }
     });
     player.onCollide("decoration", () => {
@@ -3491,7 +3582,36 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       camPos(player.pos);
     });
     if (etage === 0) {
-      go("game", { etage: 1 });
+      showDialog("Animation en cours...", 2);
+      wait(2, () => {
+        showDialog("La tortue nait et rejoint la mer", 3);
+      });
+      wait(15, () => {
+        showDialog("Navigation vers la premiere profondeur", 3);
+      });
+      player.freeze();
+      let c2 = 0;
+      loop(0.2, () => {
+        if (c2 >= 0 && c2 < 10)
+          player.move(0, player.move_speed * 2);
+        else if (c2 >= 10 && c2 < 13) {
+          player.play("runX");
+          player.move(player.move_speed * 2, 0);
+        } else if (c2 >= 13 && c2 < 40) {
+          player.play("runY");
+          player.move(0, player.move_speed * 2);
+        } else if (c2 >= 40 && c2 < 50) {
+          player.play("runX");
+          player.flipX(true);
+          player.move(-player.move_speed * 2, 0);
+        } else if (c2 >= 50 && c2 < 95) {
+          player.play("runY");
+          player.flipX(false);
+          player.move(0, player.move_speed * 2);
+        } else if (c2 == 95)
+          go("game", { etage: 1 });
+        c2++;
+      });
     }
     function takeDamage(nb) {
       if (nb > 0) {
@@ -3524,8 +3644,39 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
     }
     __name(upSpeed, "upSpeed");
     onKeyPress("a", upSpeed);
+    onKeyPress("b", burp);
+    onKeyPress("r", () => {
+      go("menu");
+    });
   });
-  onKeyPress("b", burp);
+  function showDialog(message = "", delay = 2) {
+    console.log("Dialogue: " + message + ` ${delay}s`);
+    let textbox = add([
+      rect(width() - 200, 80, { radius: 32 }),
+      origin("center"),
+      pos(center().x, height() - 60),
+      outline(2),
+      area(),
+      color(0, 0, 0),
+      opacity(0.25),
+      fixed(),
+      "dialogs"
+    ]);
+    let txt = add([
+      text(message, { size: 32, width: width() - 230 }),
+      pos(textbox.pos),
+      origin("center"),
+      fixed(),
+      "dialogs"
+    ]);
+    textbox.onClick(() => {
+      destroyAll("dialogs");
+    });
+    wait(delay, () => {
+      destroyAll("dialogs");
+    });
+  }
+  __name(showDialog, "showDialog");
   go("menu");
 })();
 //# sourceMappingURL=game.js.map

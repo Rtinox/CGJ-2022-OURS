@@ -5,6 +5,7 @@ export function entierAleatoire(min, max)
 
 export function loadAssets()
 {
+  loadSound("roblox","sounds/bruitRoblox.mp3");
   loadSprite("bean", "sprites/bean.png");
   loadSprite("wall", "sprites/wall.png");
   loadSprite("decoration", "sprites/decoration.png", {
@@ -27,10 +28,21 @@ export function loadAssets()
   loadSprite("perle", "sprites/perle.png");
   loadSprite("courone", "sprites/courone.png");
   loadSprite("trident", "sprites/trident.png");
-  loadSprite("anemone", "sprites/anemone.png");
+  loadSprite("anemone", "sprites/anemone.png", {
+    sliceX: 8,
+    sliceY:1,
+    anims : {
+      idle: {
+        from: 0,
+        to: 7,
+        loop: true,
+        pingpong: true,
+      }
+    }
+  });
   loadSprite("menuBackground", "sprites/menuBackground.png");
   loadSprite("sortie", "sprites/sortie.png");
-  loadSprite("eau2", "sprites/eau2.jpg");
+  loadSprite("eau2", "sprites/eau2.png");
   loadSprite("eau", "sprites/eau.png", {
 		sliceX: 3,
 	  sliceY: 1
@@ -66,6 +78,17 @@ export function loadAssets()
  loadSprite("trident", "sprites/trident.png", {
 		sliceX: 4,
 	  sliceY: 1
+  });
+  loadSprite("morsure", "sprites/morsure.png", {
+    sliceX: 6,
+    sliceY: 1,
+    anims: {
+      mord:{
+        from: 0,
+        to: 5,
+        loop: true
+      }
+    }
   });
   loadSprite("piranha", "sprites/piranha.png", {
     sliceX: 14,
