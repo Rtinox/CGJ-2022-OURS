@@ -2784,11 +2784,11 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
     1: {
       0: [
         "   ###########################   ",
-        "  # * d #     d #    d  #   r #  ",
-        " #     d#  d    #  d    #  rt r# ",
-        "# d     e    c  e       #r      #",
+        "  # * d #     d #    d  #d  d #  ",
+        " #     d#  d    #  d    #  d& d# ",
+        "# d     e    c  e       #d      #",
         "# c     e   d   e       # d   d #",
-        "#       e       e  d    #       #",
+        "#   @   e       e  d    #       #",
         "# d     #    d  #     r # c d c #",
         "#     d # d     #  c    #       #",
         "###eee#############eee#####eee###",
@@ -2820,18 +2820,18 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       ],
       1: [
         "   ###########################   ",
-        "  #     #       #   *  d#     #  ",
-        " #    d #       # d     #  d   # ",
-        "#       e   c   e       e       #",
-        "# d     e       e       e  d    #",
-        "#       e       e    d  e       #",
-        "#     d # c     # d     #    d  #",
-        "# d     #       #       #d      #",
+        "  #     #    d  #   *  d#     #  ",
+        " #    d #  d  d # d     #  d   # ",
+        "#       e   c   e       e     d #",
+        "# d  d  e d     e       e  d    #",
+        "# c     e     d e  m d  e       #",
+        "#     d # c d   # d     #  d d  #",
+        "# d     #    d  #       #d      #",
         "###eee#############eee###########",
         "#     d #    d  #     d #  d    #",
         "#d      # d     # d     #       #",
         "#   d   e    d  e   c   #d  d   #",
-        "#       e  d    e       #       #",
+        "#       e  d    e       #     d #",
         "# d     e       e    d  # d     #",
         "#   c   #  d    #  c    #      d#",
         "#    d  #     d # d  d  # d     #",
@@ -2844,10 +2844,10 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
         "#       # d  c  #    d  #    d  #",
         "#     d #       #       #       #",
         "###########eee#####eee###########",
-        "#  r r  #    d  #     d #    d  #",
-        "# rt    #   c   # d    d# d     #",
+        "#  d d  #    d  #     d #    d  #",
+        "# d&    #   c   # d    d# d     #",
         "#  d  d e d     e   c   e    d  #",
-        "#r      e     d e       e       #",
+        "#d      e     d e       e       #",
         "#    d  e   d   e    d  e  d    #",
         " #      #  c    #  d    #     d# ",
         "  #d    #d    d #      d#     #  ",
@@ -2858,10 +2858,10 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       0: [
         "   ###########################   ",
         "  #     #    pd #   *   #     #  ",
-        " #d  d  # d     # d     #      # ",
+        " #d  d  # d     # d  @  #      # ",
         "# @     #   d   e    d  e  d    #",
         "#  d    #       e       e       #",
-        "#d      #       e       e    d  #",
+        "#d      #       e  @    e    d  #",
         "#       #  d    #    d  #       #",
         "#     d #       # d     # d     #",
         "###eee#############eee###########",
@@ -2889,205 +2889,96 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
         "#1      #   d   #  d    #      # ",
         " ##     #       #       # d   #  ",
         "   ###########################   "
-      ],
-      1: [
-        "   #################0#########   ",
-        "  #     #       #   *   #     #  ",
-        " #      #       #       #      # ",
-        "#       #       e       e       #",
-        "#       #       e       e       #",
-        "#       #       e       e       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "###################eee###########",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#################################",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#################################",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        " #      #       #       #      # ",
-        "  #     #       #       #     #  ",
-        "   ###########################   "
       ]
     },
     3: {
       0: [
-        "   #################0#########   ",
-        "  #     #       #   *   #     #  ",
-        " #      #       #       #      # ",
-        "#       #       e       e       #",
-        "#       #       e       e       #",
-        "#       #       e       e       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "###################eee###########",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#################################",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#################################",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        " #      #       #       #      # ",
-        "  #     #       #       #     #  ",
-        "   ###########################   "
-      ],
-      1: [
-        "   #################0#########   ",
-        "  #     #       #   *   #     #  ",
-        " #      #       #       #      # ",
-        "#       #       e       e       #",
-        "#       #       e       e       #",
-        "#       #       e       e       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "###################eee###########",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#################################",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#################################",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        " #      #       #       #      # ",
-        "  #     #       #       #     #  ",
+        "   ###########################   ",
+        "  #     #     d #     d #     #  ",
+        " #    d # d  p  #  d    # d   *# ",
+        "#   d   e       e       e    d  #",
+        "#       e   d   e       e   d   #",
+        "# d   @ e       e   d   ed     d#",
+        "# d     #d      #       #  d    #",
+        "#   d   #  p   d#d    d #       #",
+        "###eee#############eee#####eee###",
+        "#      d#    d  #      d#     d #",
+        "#    d  #  d    #  d    #  d    #",
+        "# d   p e     d e       #       #",
+        "#       e   d   e  p d  #   @ d #",
+        "#  p d  e       ed      # d     #",
+        "#     d # d    d#     d #   d   #",
+        "#d      #       #p    @ #     d #",
+        "###eee#####eee#####eee#####eee###",
+        "#      d#     d #       #    d  #",
+        "#d      #    d  #d   d  # d     #",
+        "#    @ k # d     #   d   #    d  #",
+        "# d     #    p  #       #   p   #",
+        "#   d   #  d    #  d    #    d  #",
+        "#   $   #     d #     d #       #",
+        "#    d  #       # d     #d      #",
+        "###########eee#####eee#####eee###",
+        "#     d #      d#       # d   d #",
+        "#  d    #   d   #  d  d #       #",
+        "#     d e d     #       e  d    #",
+        "#   d   e      d#   p   e     d #",
+        "#d      e  d    # d   d e d     #",
+        " #1     #       #   d   #    @ # ",
+        "  #d @ d#  d  d #       #     #  ",
         "   ###########################   "
       ]
     },
     4: {
       0: [
-        "   #################0#########   ",
-        "  #     #       #   *   #     #  ",
-        " #      #       #       #      # ",
-        "#       #       e       e       #",
-        "#       #       e       e       #",
-        "#       #       e       e       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "###################eee###########",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#################################",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#################################",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        " #      #       #       #      # ",
-        "  #     #       #       #     #  ",
-        "   ###########################   "
-      ],
-      1: [
-        "   #################0#########   ",
-        "  #     #       #   *   #     #  ",
-        " #      #       #       #      # ",
-        "#       #       e       e       #",
-        "#       #       e       e       #",
-        "#       #       e       e       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "###################eee###########",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#################################",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#################################",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        "#       #       #       #       #",
-        " #      #       #       #      # ",
-        "  #     #       #       #     #  ",
+        "   ###########################   ",
+        "  #    d# d  d  #   *   #     #  ",
+        " #d  d  #   @   #    d  #d d   # ",
+        "#       #  d    e d     e      d#",
+        "#   d d # m   d e   @  de    d  #",
+        "#d      #       e       e   d   #",
+        "#   d   #  d  d #     d #     @ #",
+        "#       #       #  d    # d     #",
+        "###eee#############eee#####eee###",
+        "#       #    d  #d   d  #d     d#",
+        "# d  @  # d     # @     #  m    #",
+        "#       #    d  e  d    e   d   #",
+        "#1      #  d    e     d e     d #",
+        "#     d #d    d e    m  e d     #",
+        "#  d    # \xA3d    #d      #     @ #",
+        "#       #     d #       # d     #",
+        "###eee#############eee#####eee###",
+        "#     d # d     #d     d#     d #",
+        "#m      #    d@ #       #dd     #",
+        "#    d  e   d   #    d  #      d#",
+        "#d      e    d  #   m   #       #",
+        "#   d   e m     #  d    #  d   m#",
+        "#   @ d #  d    #d      #       #",
+        "#d      #    d  #    d m# d  d  #",
+        "###########eee#####eee#####eee###",
+        "#       #    d  # d     #d  d   #",
+        "#       # d     #  @  d #      d#",
+        "#       #   d   ed      e   d   #",
+        "#       #    m  e   d   e    m  #",
+        "#       # d   d e    d  e d   d #",
+        " #      #d      #  d   @#      # ",
+        "  #     #    d  # d     #  d  #  ",
         "   ###########################   "
       ]
     },
     5: {
       0: [
-        "        ####        ",
-        "     ###    ###     ",
-        "   ##          ##   ",
-        "  #              #  ",
-        "  #              #  ",
-        "  #              #  ",
-        " #                # ",
-        " #                # ",
-        " #                # ",
-        " #                # ",
-        "  #              #  ",
-        "  #      *       #  ",
-        "  #              #  ",
-        "   ##          ##   ",
-        "     ###    ###     ",
-        "        ####        "
+        "      ##      ",
+        "    ##  ##    ",
+        "   #d  d  #   ",
+        "  #        #  ",
+        "  #  d   d #  ",
+        " #     \xF9    # ",
+        " # d    d   # ",
+        "  #        #  ",
+        "  #d ####  #  ",
+        "   #  * d #   ",
+        "    ##  ##    ",
+        "      ##      "
       ]
     }
   };
@@ -3098,7 +2989,11 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
   }
   __name(entierAleatoire, "entierAleatoire");
   function loadAssets() {
-    loadSound("roblox", "sounds/bruitRoblox.mp3");
+    loadSound("deep_dive", "sounds/deep_dive.mp3");
+    loadSound("creature", "sounds/creature.mp3");
+    loadSound("birth", "sounds/birth.mp3");
+    loadSound("coup", "sounds/coup.mp3");
+    loadSound("roblox", "sounds/roblox.mp3");
     loadSprite("bean", "sprites/bean.png");
     loadSprite("wall", "sprites/wall.png");
     loadSprite("decoration", "sprites/decoration.png", {
@@ -3114,7 +3009,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       }
     });
     loadSprite("pierre", "sprites/pierre.png", {
-      sliceX: 2,
+      sliceX: 3,
       sliceY: 1
     });
     loadSprite("jambon", "sprites/jambon.png");
@@ -3171,10 +3066,6 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       sliceX: 4,
       sliceY: 1
     });
-    loadSprite("trident", "sprites/trident.png", {
-      sliceX: 4,
-      sliceY: 1
-    });
     loadSprite("morsure", "sprites/morsure.png", {
       sliceX: 6,
       sliceY: 1,
@@ -3186,7 +3077,33 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
         }
       }
     });
-    loadSprite("piranha", "sprites/piranha.png", {
+    loadSprite("piranha1", "sprites/piranha1.png", {
+      sliceX: 24,
+      sliceY: 1,
+      anims: {
+        runY: {
+          from: 0,
+          to: 6,
+          loop: true
+        },
+        runX: {
+          from: 7,
+          to: 13,
+          loop: true
+        },
+        damageX: {
+          from: 14,
+          to: 18,
+          loop: false
+        },
+        damageX: {
+          from: 19,
+          to: 23,
+          loop: false
+        }
+      }
+    });
+    loadSprite("piranha2", "sprites/piranha2.png", {
       sliceX: 24,
       sliceY: 1,
       anims: {
@@ -3231,7 +3148,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
           to: 16,
           loop: false
         },
-        damageX: {
+        damageY: {
           from: 17,
           to: 21,
           loop: false
@@ -3280,9 +3197,37 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
         }
       }
     });
+    loadSprite("meduse", "sprites/crab.png", {
+      sliceX: 12,
+      sliceY: 1,
+      anims: {
+        runX: {
+          from: 6,
+          to: 11,
+          loop: true
+        },
+        runY: {
+          from: 0,
+          to: 5,
+          loop: true
+        }
+      }
+    });
+    loadSprite("boss", "sprites/boss.png", {
+      sliceX: 2,
+      sliceY: 1,
+      anims: {
+        idle: {
+          from: 0,
+          to: 1,
+          loop: true
+        }
+      }
+    });
+    loadSprite("knife", "sprites/knife.png");
   }
   __name(loadAssets, "loadAssets");
-  function crabeMouvement(speed = 60, dir = 1) {
+  function crabeMouvement(speed = 70, dir = 1) {
     return {
       id: "patrol",
       require: ["pos", "area"],
@@ -3299,6 +3244,57 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
     };
   }
   __name(crabeMouvement, "crabeMouvement");
+  function meduseMouvement(speed = 50, dirX = 1, dirY = randi(-1, 3)) {
+    return {
+      id: "patrol",
+      require: ["pos", "area"],
+      add() {
+        this.on("collide", (obj, col) => {
+          if (col.isTop() || col.isBottom() || col.isRight() || col.isLeft()) {
+            dirX = randi(-1, 3);
+            dirY = randi(-1, 3);
+            if (dirX == 0 && dirY == 0) {
+              dirX = 1, dirY = -1;
+            }
+          }
+        });
+      },
+      update() {
+        this.move(speed * dirX, speed * dirY);
+      }
+    };
+  }
+  __name(meduseMouvement, "meduseMouvement");
+
+  // code/dialogs.js
+  function showDialog(message = "", delay = 2) {
+    console.log("Dialogue: " + message + ` ${delay}s`);
+    let textbox = add([
+      rect(width() - 200, 80, { radius: 32 }),
+      origin("center"),
+      pos(center().x, height() - 60),
+      outline(2),
+      area(),
+      color(0, 0, 0),
+      opacity(0.25),
+      fixed(),
+      "dialogs"
+    ]);
+    let txt = add([
+      text(message, { size: 32, width: width() - 230 }),
+      pos(textbox.pos),
+      origin("center"),
+      fixed(),
+      "dialogs"
+    ]);
+    textbox.onClick(() => {
+      destroyAll("dialogs");
+    });
+    wait(delay, () => {
+      destroyAll("dialogs");
+    });
+  }
+  __name(showDialog, "showDialog");
 
   // code/main.js
   Es({
@@ -3306,9 +3302,21 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
     font: "sinko",
     background: [76, 170, 237]
   });
+  var music = play("birth", {
+    loop: true
+  });
   var ENEMY_SPEED = 40;
   var BULLET_SPEED = 100;
   var TABDECO = ["decoration", "algues", "anemone"];
+  var TABPIRANHA = ["piranha1", "piranha2"];
+  var TABBOOST = [
+    ["palme", "speedBoost"],
+    ["jambon", "regen"],
+    ["jambon", "regen"],
+    ["jambon", "regen"],
+    ["jambon", "regen"],
+    ["coeur", "pvUp"]
+  ];
   loadAssets();
   scene("menu", () => {
     const background = add([
@@ -3355,7 +3363,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       go("menu");
     });
   });
-  scene("game", ({ etage }) => {
+  scene("game", ({ etage, playerVar = null }) => {
     let level = null;
     const nbEtages = Object.keys(maps).length;
     console.log(`${nbEtages} \xE9tage.s`);
@@ -3374,7 +3382,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       height: 64,
       pos: vec2(0, 0),
       "#": () => [
-        sprite("pierre", { frame: ~~rand(0, 2) }),
+        sprite("pierre", { frame: etage == 5 ? 2 : ~~rand(0, 2) }),
         area(),
         scale(2),
         solid()
@@ -3392,7 +3400,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       width: 64,
       height: 64,
       "p": () => [
-        sprite("piranha"),
+        sprite(TABPIRANHA[randi(0, 2)]),
         area(),
         solid(),
         scale(1.5),
@@ -3423,11 +3431,22 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
         "enemy",
         "playXAnim"
       ],
-      "@": () => [
-        sprite("palme"),
+      "m": () => [
+        sprite("meduse"),
         area(),
-        "speedBoost",
-        scale(2)
+        solid(),
+        scale(1.5),
+        health(2),
+        meduseMouvement(),
+        "enemy",
+        "playXAnim"
+      ],
+      "@": () => [
+        compt = randi(0, 6),
+        sprite(TABBOOST[compt][0]),
+        area(),
+        TABBOOST[compt][1],
+        scale(1)
       ],
       "j": () => [
         sprite("jambon"),
@@ -3447,11 +3466,36 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
         scale(2),
         "decoration"
       ],
+      "$": () => [
+        sprite("courone"),
+        area(),
+        "courone"
+      ],
+      "\xA3": () => [
+        sprite("trident"),
+        area(),
+        "trident"
+      ],
+      "&": () => [
+        sprite("perle"),
+        area(),
+        "perle"
+      ],
       "1": () => [
         sprite("sortie"),
         area(),
         scale(2),
         "sortie"
+      ],
+      "\xF9": () => [
+        sprite("boss"),
+        area(),
+        scale(1),
+        health(7),
+        solid(),
+        state("move", ["idle", "attack", "move"]),
+        "boss",
+        "enemy"
       ],
       "*": () => [
         sprite("turtle"),
@@ -3460,9 +3504,12 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
         solid(),
         scale(1.5),
         {
-          pv: 3,
-          pvMax: 3,
-          move_speed: 180,
+          pv: playerVar == null ? 3 : playerVar.pv,
+          pvMax: playerVar == null ? 3 : playerVar.pvMax,
+          move_speed: playerVar == null ? 180 : playerVar.move_speed,
+          hasPerle: playerVar == null ? false : playerVar.hasPerle,
+          hasCourone: playerVar == null ? false : playerVar.hasCourone,
+          hasTrident: playerVar == null ? false : playerVar.hasTrident,
           inv: false,
           canAttak: true,
           isFrozen: false,
@@ -3474,19 +3521,65 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       ]
     });
     every("enemy", (e) => {
-      e.play("runX");
+      if (!e.is("boss"))
+        e.play("runX");
       e.on("death", () => {
         destroy(e);
         burp();
       });
       e.on("hurt", () => {
-        play("roblox");
+        play("coup");
       });
     });
     every("decoration", (e) => {
       e.play("idle");
     });
-    every("pieuvre", (e) => {
+    every("boss", (e) => {
+      e.play("idle");
+    });
+    every(["boss"], (e) => {
+      e.onStateEnter("move", () => {
+        e.play("idle");
+        wait(2, () => e.enterState("idle"));
+      });
+      e.onStateUpdate("move", () => {
+        if (!player.exists())
+          return;
+        const dir = player.pos.sub(e.pos).unit();
+        let dir2 = dir.scale(ENEMY_SPEED);
+        e.move(dir2);
+        if (dir2.x < 0)
+          e.flipX(true);
+        else
+          e.flipX(false);
+      });
+      e.onStateEnter("idle", () => {
+        if (!e.exists())
+          return;
+        wait(0.5, () => e.enterState("attack"));
+      });
+      e.onStateEnter("attack", () => {
+        wait(0.5, () => e.enterState("move"));
+        if (e.is("pieuvre"))
+          e.play("attack");
+        else
+          e.play("idle");
+        if (!player.exists())
+          return;
+        const dir = player.pos.sub(e.pos).unit();
+        add([
+          sprite(e.is("boss") ? "knife" : "projectil", { frame: e.is("boss") ? 0 : ~~rand(0, 4) }),
+          pos(e.pos),
+          move(dir, BULLET_SPEED),
+          area(),
+          cleanup(),
+          origin("center"),
+          "bullet"
+        ]);
+      });
+      e.enterState("move");
+    });
+    every(["pieuvre"], (e) => {
       e.onStateEnter("move", () => {
         e.play("runX");
         wait(2, () => e.enterState("idle"));
@@ -3509,19 +3602,20 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       });
       e.onStateEnter("attack", () => {
         wait(0.5, () => e.enterState("move"));
-        e.play("attack");
+        if (e.is("pieuvre"))
+          e.play("attack");
+        else
+          e.play("idle");
         if (!player.exists())
           return;
         const dir = player.pos.sub(e.pos).unit();
         add([
-          sprite("projectil", { frame: ~~rand(0, 4) }),
+          sprite(e.is("boss") ? "knife" : "projectil", { frame: e.is("boss") ? 0 : ~~rand(0, 4) }),
           pos(e.pos),
           move(dir, BULLET_SPEED),
-          rect(12, 12),
           area(),
           cleanup(),
           origin("center"),
-          color(CYAN),
           "bullet"
         ]);
       });
@@ -3555,17 +3649,21 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
     });
     player.onCollide("enemy", (enemy) => {
       takeDamage(-1);
+      player.play("damageX");
     });
     player.onCollide("bullet", (bullet) => {
       takeDamage(-1);
+      player.play("damageX");
       destroy(bullet);
-    });
-    every("morsure", (e) => {
-      e.play("mord");
     });
     onKeyPress("space", () => {
       if (player.canAttak == true) {
-        let max = 80;
+        player.canAttak = false;
+        wait(1, () => {
+          player.canAttak = true;
+        });
+        player.canAttack = false;
+        let max = 90;
         let en = null;
         let distanceEn = 1e5;
         every("enemy", (enemy) => {
@@ -3581,17 +3679,16 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
           sprite("morsure"),
           origin("bot"),
           rotate(0),
-          follow(player, vec2(-4, 9))
+          scale(2),
+          follow(player, vec2(22, 60))
         ]);
+        mordre.play("mord");
         wait(0.75, () => {
           destroy(mordre);
+          player.canAttack = true;
         });
         if (en != null) {
           en.hurt(1);
-          player.canAttak = false;
-          wait(1, () => {
-            player.canAttak = true;
-          });
         }
       }
     });
@@ -3608,7 +3705,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       pvLabel.text = player.pv + "/" + player.pvMax;
     });
     player.onCollide("sortie", () => {
-      go("game", { etage: etage + 1 });
+      go("game", { etage: etage + 1, playerVar: player });
     });
     keyDown(["left", "q"], () => {
       if (player.isFrozen)
@@ -3643,13 +3740,20 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
         player.play("runY");
       }
     });
-    player.onUpdate(() => {
-      camPos(player.pos);
-    });
     if (etage === 0) {
+      music.stop();
+      music = play("birth", { loop: true });
       go("game", { etage: 1 });
-    } else {
+    } else if (etage == 1) {
       showDialog("Trouvez les merveilles et sorties pour descendre en profondeur", 10);
+    } else if (etage == 2) {
+      music.stop();
+      music = play("deep_dive", { loop: true });
+      showDialog("La musique a change ?!", 3);
+    } else if (etage == 5) {
+      music.stop();
+      music = play("creature", { loop: true });
+      showDialog("C'est l'heure du boss, bon courage !", 5);
     }
     function takeDamage(nb) {
       if (nb > 0) {
@@ -3677,6 +3781,45 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       scale(1.8),
       fixed()
     ]);
+    const couroneImg = add([
+      sprite("courone"),
+      opacity(player.hasCourone ? 1 : 0.4),
+      pos(100, 0),
+      scale(1.8),
+      fixed()
+    ]);
+    player.onCollide("courone", (e) => {
+      destroy(e);
+      player.hasCourone = true;
+      couroneImg.opacity = 1;
+    });
+    const perleImg = add([
+      sprite("perle"),
+      opacity(player.hasPerle ? 1 : 0.4),
+      pos(160, 0),
+      scale(1.8),
+      fixed()
+    ]);
+    player.onCollide("perle", (e) => {
+      destroy(e);
+      player.hasPerle = true;
+      perleImg.opacity = 1;
+    });
+    const tridentImg = add([
+      sprite("trident"),
+      opacity(0.4),
+      pos(220, 0),
+      scale(1.8),
+      fixed()
+    ]);
+    player.onCollide("trident", (e) => {
+      destroy(e);
+      player.hasTrident = true;
+      tridentImg.opacity = 1;
+    });
+    player.onUpdate(() => {
+      camPos(player.pos);
+    });
     function upSpeed() {
       player.move_speed += 80;
     }
@@ -3687,34 +3830,6 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       go("menu");
     });
   });
-  function showDialog(message = "", delay = 2) {
-    console.log("Dialogue: " + message + ` ${delay}s`);
-    let textbox = add([
-      rect(width() - 200, 80, { radius: 32 }),
-      origin("center"),
-      pos(center().x, height() - 60),
-      outline(2),
-      area(),
-      color(0, 0, 0),
-      opacity(0.25),
-      fixed(),
-      "dialogs"
-    ]);
-    let txt = add([
-      text(message, { size: 32, width: width() - 230 }),
-      pos(textbox.pos),
-      origin("center"),
-      fixed(),
-      "dialogs"
-    ]);
-    textbox.onClick(() => {
-      destroyAll("dialogs");
-    });
-    wait(delay, () => {
-      destroyAll("dialogs");
-    });
-  }
-  __name(showDialog, "showDialog");
   go("menu");
 })();
 //# sourceMappingURL=game.js.map

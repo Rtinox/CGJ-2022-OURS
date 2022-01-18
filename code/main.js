@@ -1,6 +1,7 @@
 import kaboom from "kaboom"
 import { maps } from "./etages"
-import { entierAleatoire, loadAssets, crabeMouvement } from "./utils"
+import { entierAleatoire, loadAssets, crabeMouvement, meduseMouvement } from "./utils"
+import { showDialog } from "./dialogs"
 
 
 // initialize context
@@ -10,11 +11,23 @@ kaboom({
   background: [76, 170, 237]
 })
 
+let music = play("birth", {
+  loop: true
+});
+
 //init player vars
 const ENEMY_SPEED = 40
 const BULLET_SPEED = 100
 var TABDECO = ["decoration", "algues", "anemone"];
-
+var TABPIRANHA = ["piranha1", "piranha2"];
+var TABBOOST = [
+ ["palme", "speedBoost"],
+ ["jambon","regen"],
+ ["jambon","regen"],
+ ["jambon","regen"],
+ ["jambon","regen"],
+ ["coeur","pvUp"],
+];
 
 // load assets
 loadAssets();
@@ -79,7 +92,7 @@ scene("about", () => {
 
 
 
-scene("game", ({ etage }) => {
+scene("game", ({ etage, playerVar = null }) => {
   // ============= LEVELS =================
   let level = null;
 
@@ -105,7 +118,7 @@ scene("game", ({ etage }) => {
     height: 64,
     pos: vec2(0, 0),
     "#": () => [
-      sprite("pierre", { frame: ~~rand(0, 2) }),
+      sprite("pierre", { frame: (etage == 5 ? 2 : ~~rand(0, 2)) }),
       area(),
       scale(2),
       solid(),
@@ -127,7 +140,7 @@ scene("game", ({ etage }) => {
     height: 64,
     "p": () =>
       [
-        sprite("piranha"),
+        sprite(TABPIRANHA[randi(0, 2)]),
         area(),
         solid(),
         scale(1.5),
@@ -160,15 +173,26 @@ scene("game", ({ etage }) => {
         "enemy",
         "playXAnim"
       ],
-    "@": () =>
-      [
-        sprite("palme"),
+    "m": () =>
+    [
+      sprite("meduse"),
+      area(),
+      solid(),
+      scale(1.5),
+      health(2),
+      meduseMouvement(),
+      "enemy",
+      "playXAnim"
+    ],
+    "@": () => [
+        compt = randi(0,6),
+        
+        sprite(TABBOOST[compt][0]),
         area(),
-        "speedBoost",
-        scale(2),
+        TABBOOST[compt][1],
+        scale(1),
       ],
-    "j": () =>
-      [
+    "j": () => [
         sprite("jambon"),
         area(),
         "regen",
@@ -187,11 +211,39 @@ scene("game", ({ etage }) => {
       scale(2),
       "decoration"
     ],
+    /* $ = courone
+    £ = trident
+    & = perle*/
+    "$": () => [
+      sprite("courone"),
+      area(),
+      "courone"
+    ],
+    "£": () => [
+      sprite("trident"),
+      area(),
+      "trident"
+    ],
+    "&": () => [
+      sprite("perle"),
+      area(),
+      "perle"
+    ],
     "1": () => [
       sprite("sortie"),
       area(),
       scale(2),
       "sortie",
+    ],
+    "ù": () => [
+      sprite("boss"),
+      area(),
+      scale(1),
+      health(7),
+      solid(),
+      state("move", ["idle", "attack", "move",]),
+      "boss",
+      "enemy"
     ],
     "*": () =>
       [
@@ -201,9 +253,12 @@ scene("game", ({ etage }) => {
         solid(),
         scale(1.5),
         {
-          pv: 3,
-          pvMax: 3,
-          move_speed: 180,
+          pv: (playerVar == null ? 3 : playerVar.pv),
+          pvMax: (playerVar == null ? 3 : playerVar.pvMax),
+          move_speed: (playerVar == null ? 180 : playerVar.move_speed),
+          hasPerle: (playerVar == null ? false : playerVar.hasPerle),
+          hasCourone: (playerVar == null ? false : playerVar.hasCourone),
+          hasTrident: (playerVar == null ? false : playerVar.hasTrident),
           inv: false,
           canAttak: true,
           isFrozen: false,
@@ -216,7 +271,7 @@ scene("game", ({ etage }) => {
   })
 
   every("enemy", (e) => {
-    e.play("runX");
+    if(!e.is("boss")) e.play("runX");
 
 
     e.on("death", () => {
@@ -225,7 +280,7 @@ scene("game", ({ etage }) => {
     })
 
     e.on("hurt", () => {
-      play("roblox")
+      play("coup")
     })
   });
 
@@ -233,7 +288,55 @@ scene("game", ({ etage }) => {
     e.play("idle");
   })
 
-  every("pieuvre", (e) => {
+  every("boss", (e) => {
+    e.play("idle");
+  })
+
+  every(["boss"], (e) => {
+    e.onStateEnter("move", () => {
+      e.play("idle");
+      wait(2, () => e.enterState("idle"))
+    })
+
+    e.onStateUpdate("move", () => {
+      if (!player.exists()) return
+      const dir = player.pos.sub(e.pos).unit()
+      let dir2 = dir.scale(ENEMY_SPEED);
+      e.move(dir2)
+      if (dir2.x < 0) e.flipX(true);
+      else e.flipX(false);
+    })
+
+    e.onStateEnter("idle", () => {
+      if (!e.exists()) return
+      wait(0.5, () => e.enterState("attack"))
+    })
+
+    e.onStateEnter("attack", () => {
+      wait(0.5, () => e.enterState("move"))
+      if(e.is("pieuvre")) e.play("attack");
+      else e.play("idle");
+
+      // Don't do anything if player doesn't exist anymore
+      if (!player.exists()) return
+
+      const dir = player.pos.sub(e.pos).unit()
+      add([
+        sprite((e.is("boss") ? "knife" : "projectil"), { frame: (e.is("boss") ? 0 : ~~rand(0, 4)) }),
+        pos(e.pos),
+        move(dir, BULLET_SPEED),
+        area(),
+        cleanup(),
+        origin("center"),
+        "bullet",
+      ])
+
+    })
+
+    e.enterState("move")
+  })
+
+  every(["pieuvre"], (e) => {
     e.onStateEnter("move", () => {
       e.play("runX");
       wait(2, () => e.enterState("idle"))
@@ -255,22 +358,20 @@ scene("game", ({ etage }) => {
 
     e.onStateEnter("attack", () => {
       wait(0.5, () => e.enterState("move"))
-      e.play("attack")
+      if(e.is("pieuvre")) e.play("attack");
+      else e.play("idle");
 
       // Don't do anything if player doesn't exist anymore
       if (!player.exists()) return
 
       const dir = player.pos.sub(e.pos).unit()
-
       add([
-        sprite("projectil", { frame: ~~rand(0, 4) }),
+        sprite((e.is("boss") ? "knife" : "projectil"), { frame: (e.is("boss") ? 0 : ~~rand(0, 4)) }),
         pos(e.pos),
         move(dir, BULLET_SPEED),
-        rect(12, 12),
         area(),
         cleanup(),
         origin("center"),
-        color(CYAN),
         "bullet",
       ])
 
@@ -310,22 +411,24 @@ scene("game", ({ etage }) => {
 
   player.onCollide("enemy", (enemy) => {
     takeDamage(-1)
+    player.play("damageX")
     //pvLabel.text = player.pv+ "/" +player.pvMax
   })
   player.onCollide("bullet", (bullet) => {
     takeDamage(-1)
+    player.play("damageX")
     destroy(bullet)
     //pvLabel.text = player.pv+ "/" +player.pvMax
   })
 
-
-  every("morsure", (e) => {
-    e.play("mord");
-  })
-
   onKeyPress("space", () => {
     if (player.canAttak == true) {
-      let max = 80;
+       player.canAttak = false
+        wait(1, () => {
+          player.canAttak = true
+        })
+      player.canAttack = false;
+      let max = 90;
       let en = null;
       let distanceEn = 100000
       every("enemy", (enemy) => {
@@ -342,17 +445,19 @@ scene("game", ({ etage }) => {
         sprite("morsure"),
         origin("bot"),
         rotate(0),
-        follow(player, vec2(-4, 9)),
+        scale(2),
+        follow(player, vec2(22, 60)),
       ])
+      mordre.play("mord")
+      
       wait(0.75, () => {
         destroy(mordre)
+        player.canAttack = true;
       })
+      
       if (en != null) {
         en.hurt(1)
-        player.canAttak = false
-        wait(1, () => {
-          player.canAttak = true
-        })
+       
       }
     }
 
@@ -373,7 +478,7 @@ scene("game", ({ etage }) => {
   })
 
   player.onCollide("sortie", () => {
-    go("game", { etage: etage + 1 });
+    go("game", { etage: etage + 1, playerVar: player });
   })
 
   // ============== DEPLACEMENTS =================
@@ -413,12 +518,10 @@ scene("game", ({ etage }) => {
     }
   })
 
-  player.onUpdate(() => {
-    camPos(player.pos)
-  })
-
 
   if (etage === 0) {
+    music.stop();
+    music = play("birth", { loop: true })
     /*showDialog("Animation en cours...", 2);
     wait(2, () => 
     {
@@ -461,8 +564,18 @@ scene("game", ({ etage }) => {
     })*/
     go("game", { etage: 1 })
   }
-  else {
+  else if (etage == 1) {
     showDialog("Trouvez les merveilles et sorties pour descendre en profondeur", 10)
+  }
+  else if (etage == 2) {
+    music.stop();
+    music = play("deep_dive", { loop: true });
+    showDialog("La musique a change ?!", 3)
+  }
+  else if (etage == 5) {
+    music.stop();
+    music = play("creature", { loop: true });
+    showDialog("C'est l'heure du boss, bon courage !", 5)
   }
 
   //fonction de perte de point de vie (pour la mort aussi)
@@ -492,6 +605,52 @@ scene("game", ({ etage }) => {
     fixed(),
   ])
 
+  const couroneImg = add([
+    sprite("courone"),
+    opacity((player.hasCourone ? 1 : 0.4)),
+    pos(100, 0),
+    scale(1.8),
+    fixed(),
+  ])
+  
+  player.onCollide("courone", (e) => {
+    destroy(e);
+    player.hasCourone = true;
+    couroneImg.opacity = 1;
+  });
+
+  const perleImg = add([
+    sprite("perle"),
+    opacity((player.hasPerle ? 1 : 0.4)),
+    pos(160, 0),
+    scale(1.8),
+    fixed(),
+  ])
+  
+  player.onCollide("perle", (e) => {
+    destroy(e);
+    player.hasPerle = true;
+    perleImg.opacity = 1;
+  });
+
+  const tridentImg = add([
+    sprite("trident"),
+    opacity(0.4),
+    pos(220, 0),
+    scale(1.8),
+    fixed(),
+  ])
+  
+  player.onCollide("trident", (e) => {
+    destroy(e);
+    player.hasTrident = true;
+    tridentImg.opacity = 1;
+  });
+
+  player.onUpdate(() => {
+    camPos(player.pos)
+  })
+
   function upSpeed() {
     player.move_speed += 80
   }
@@ -502,38 +661,5 @@ scene("game", ({ etage }) => {
     go("menu");
   })
 })
-
-function showDialog(message = "", delay = 2) {
-  console.log("Dialogue: " + message + ` ${delay}s`)
-  // Text bubble
-  let textbox = add([
-    rect(width() - 200, 80, { radius: 32 }),
-    origin("center"),
-    pos(center().x, height() - 60),
-    outline(2),
-    area(),
-    color(0, 0, 0),
-    opacity(0.25),
-    fixed(),
-    "dialogs"
-  ])
-
-  // Text
-  let txt = add([
-    text(message, { size: 32, width: width() - 230 }),
-    pos(textbox.pos),
-    origin("center"),
-    fixed(),
-    "dialogs"
-  ])
-
-  textbox.onClick(() => {
-    destroyAll("dialogs")
-  })
-
-  wait(delay, () => {
-    destroyAll("dialogs")
-  })
-}
 
 go("menu")
